@@ -1,6 +1,6 @@
-const MIN_TIME = 1000; //milliseconds
-const MAX_TIME = 1500; //milliseconds
-const PLAY_TIME = 15; //seconds
+const MIN_TIME = 800; //milliseconds
+const MAX_TIME = 1000; //milliseconds
+const PLAY_TIME = 30; //seconds
 
 let height = 0;
 let highScore = 0;
