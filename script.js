@@ -1,5 +1,5 @@
-const MIN_TIME = 800; //milliseconds
-const MAX_TIME = 1000; //milliseconds
+const MIN_TIME = 1200; //milliseconds
+const MAX_TIME = 1400; //milliseconds
 const PLAY_TIME = 30; //seconds
 
 let height = 0;
@@ -49,9 +49,24 @@ function start(){
 
 
 function updateScore(){
-    console.log(myScore);
     myScore_field.innerHTML = myScore;
     highScore_field.innerHTML = highScore;
+}
+
+function redEffect(image){
+    image.parentNode.childNodes[1].classList.add('mask')
+
+    setTimeout(()=>{
+        image.parentNode.childNodes[1].classList.remove('mask')
+    }, 75)
+
+    setTimeout(()=>{
+        image.parentNode.childNodes[1].classList.add('mask')
+    }, 150)
+
+    setTimeout(()=>{
+        image.parentNode.childNodes[1].classList.remove('mask')
+    }, 300)
 }
 
 
@@ -61,7 +76,8 @@ function scoreStart(){
         images[i].addEventListener('click',function(event) {
             if(!timeUp){
                 myScore += 1;
-                moleDown(event.target)
+                redEffect(event.target);
+                moleDown(event.target);
                 updateScore();
             }
         })
