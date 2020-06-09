@@ -130,6 +130,8 @@ body{
 
 .grid-container{
     grid-template-columns: auto auto;
+    margin: 0;
+}
 }
 
-}
+
