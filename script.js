@@ -25,7 +25,7 @@ function start(){
         myScore = 0;
         updateScore();
 
-        /* making photos to disappear */
+        /* photos hide */
         height = document.body.getElementsByClassName('img-holder')[0].clientHeight;
         $('.mole').css("transform", "translateY(" + (height+10) + "px)");
 
