@@ -1,16 +1,16 @@
 const MIN_TIME = 1200; //milliseconds
 const MAX_TIME = 1400; //milliseconds
-const PLAY_TIME = 30; //seconds
+const PLAY_TIME = 10; //seconds
 
 let height = 0;
 let highScore = 0;
-let timeUp = false;
+let timeUp = true;
 let lastHole = 1000;
 let myScore = 0;
 
 
-let startBtn = document.getElementById('startBtn');
-startBtn.addEventListener('click', start);
+let startBtn = $("#startBtn");
+startBtn.click(start);
 
 let time = document.getElementById('time');
 let myScore_field = document.getElementById('myScore');
@@ -25,26 +25,27 @@ scoreStart();
 
 function start(){
 
-    timeUp = false;
-    myScore = 0;
-    updateScore();
+    if(timeUp){
+        timeUp = false;
+        myScore = 0;
+        updateScore();
 
-    /* making photos to disappear */
-    height = document.body.getElementsByClassName('img-holder')[0].clientHeight;
+        /* making photos to disappear */
+        height = document.body.getElementsByClassName('img-holder')[0].clientHeight;
 
-    
-    
-    for(let i = 0; i< images.length; i++){
-        images[i].style.transform = "translateY(" + (height+10) + "px)";
+        for(let i = 0; i< images.length; i++){
+            images[i].style.transform = "translateY(" + (height+10) + "px)";
+        }
+
+        time.innerHTML = PLAY_TIME;
+
+        moleUp();
+        countdown();
     }
 
-    time.innerHTML = PLAY_TIME;
-
-    startBtn.removeEventListener('click', start);
-
-    
-    moleUp();
-    countdown();
+    else{
+        console.log('Game is still running!');
+    }
 }
 
 
@@ -105,7 +106,6 @@ function randomHoles(holes){
 
 function finish(){
     time.innerHTML = "Time Up";
-    startBtn.addEventListener('click', start);
     if(myScore > highScore){
         highScore = myScore;
     }
@@ -125,7 +125,6 @@ function countdown(){
         finish();
         return
     }
-    
     
     setTimeout(countdown, 1000);
 }
