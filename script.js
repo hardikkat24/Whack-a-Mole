@@ -9,10 +9,7 @@ let lastHole = 1000;
 let myScore = 0;
 
 
-let startBtn = $("#startBtn");
-startBtn.click(start);
-
-let time = document.getElementById('time');
+$("#startBtn").click(start);
 
 let images = document.body.querySelectorAll('.mole');
 let holes = document.body.querySelectorAll('.mole');
@@ -114,10 +111,10 @@ function finish(){
 
 
 function countdown(){
-    seconds = time.innerHTML;
+    seconds = $('#time').text();
     seconds--;
     if(seconds>0){
-        time.innerHTML = seconds;
+        $('#time').text(seconds);
     }
     else{
         finish();
