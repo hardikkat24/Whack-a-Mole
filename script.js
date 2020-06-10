@@ -27,12 +27,9 @@ function start(){
 
         /* making photos to disappear */
         height = document.body.getElementsByClassName('img-holder')[0].clientHeight;
+        $('.mole').css("transform", "translateY(" + (height+10) + "px)");
 
-        for(let i = 0; i< images.length; i++){
-            images[i].style.transform = "translateY(" + (height+10) + "px)";
-        }
-
-        time.innerHTML = PLAY_TIME;
+        $('#time').text(PLAY_TIME);
 
         moleUp();
         countdown();
@@ -139,4 +136,5 @@ function moleUp(){
 
 function moleDown(hole){
     hole.style.transform = "translateY(" + height + "px)";
+    
 }
