@@ -16,6 +16,9 @@ let holes = document.body.querySelectorAll('.mole');
 
 
 scoreStart();
+$('.hammer').animate({
+    'opacity': 0
+})
 
 
 function start(){
@@ -47,6 +50,8 @@ function updateScore(){
 }
 
 function redEffect(image){
+
+   
     image.parentNode.childNodes[1].classList.add('mask')
 
     setTimeout(()=>{
@@ -63,12 +68,45 @@ function redEffect(image){
 }
 
 
+function hammerEffect(target){
+    console.log(target.parentNode);
+    console.log(target.parentNode.offsetTop);
+    console.log(target.parentNode.offsetLeft);
+    let height = $('.img-holder')[0].clientHeight;
+    let width = $('.img-holder')[0].clientWidth;
+
+    hammer = $('.hammer').first()
+
+    hammer.height(height);
+  
+    hammer.animate({
+        'left': target.parentNode.offsetLeft + width*3/4,
+        'top': target.parentNode.offsetTop - height/2
+    }, 0)
+
+    hammer.animate({
+        'opacity': 1
+    }, 0)
+
+    hammer.animate({
+        'left': target.parentNode.offsetLeft + width/4,
+        'top': target.parentNode.offsetTop + height/2
+    }, 200, 'swing')
+
+    hammer.animate({
+        'opacity': 0
+    }, 200)
+    
+}
+
+
 function scoreStart(){
     $('.mole').click(function(event){
         console.log(event.target);
         if(!timeUp){
             myScore += 1;
-            redEffect(event.target);
+            //redEffect(event.target);
+            hammerEffect(event.target);
             moleDown(event.target);
             updateScore();
         }
@@ -136,5 +174,6 @@ function moleUp(){
 }
 
 function moleDown(hole){
+    
     hole.style.transform = "translateY(" + height + "px)";
 }
