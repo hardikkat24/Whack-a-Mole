@@ -13,8 +13,6 @@ let startBtn = $("#startBtn");
 startBtn.click(start);
 
 let time = document.getElementById('time');
-let myScore_field = document.getElementById('myScore');
-let highScore_field = document.getElementById('highScore');
 
 let images = document.body.querySelectorAll('.mole');
 let holes = document.body.querySelectorAll('.mole');
@@ -50,8 +48,8 @@ function start(){
 
 
 function updateScore(){
-    myScore_field.innerHTML = myScore;
-    highScore_field.innerHTML = highScore;
+    $('#myScore').text(myScore);
+    $('#highScore').text(highScore);
 }
 
 function redEffect(image){
