@@ -82,11 +82,11 @@ function randomTime(min, max){
 
 
 
-function randomHoles(holes){
-    let id = Math.floor(Math.random() * holes.length);
-    let hole = holes[id];
+function randomHoles(){
+    let id = Math.floor(Math.random() * $('.mole').length);
+    let hole = $('.mole')[id];
     if(hole == lastHole){
-        return randomHoles(holes);
+        return randomHoles();
     }
 
     lastHole = hole;
@@ -121,20 +121,20 @@ function countdown(){
 
 
 function moleUp(){
-    const time = randomTime(MIN_TIME, MAX_TIME);
-    const hole = randomHoles(holes);
+    let time = randomTime(MIN_TIME, MAX_TIME);
+    let hole = randomHoles();
 
-    hole.style.transform = "translateY(0px)";
+    //hole.css("transform", "translateY(0px)")
+    hole.style.transform = "translateY(20px)";
 
     setTimeout(() => {
         if (!timeUp){
             moleDown(hole);
-            moleUp()
+            moleUp();
         }
     }, time)
 }
 
 function moleDown(hole){
     hole.style.transform = "translateY(" + height + "px)";
-    
 }
