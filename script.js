@@ -67,17 +67,15 @@ function redEffect(image){
 
 
 function scoreStart(){
-    for(let i = 0; i< images.length; i++){
-        console.log(images[i])
-        images[i].addEventListener('click',function(event) {
-            if(!timeUp){
-                myScore += 1;
-                redEffect(event.target);
-                moleDown(event.target);
-                updateScore();
-            }
-        })
-    }
+    $('.mole').click(function(event){
+        console.log(event.target);
+        if(!timeUp){
+            myScore += 1;
+            redEffect(event.target);
+            moleDown(event.target);
+            updateScore();
+        }
+    })
 }
 
 
