@@ -100,7 +100,7 @@ function randomHoles(holes){
 
 
 function finish(){
-    time.innerHTML = "Time Up";
+    $('#time').text("Time Up");
     if(myScore > highScore){
         highScore = myScore;
     }
