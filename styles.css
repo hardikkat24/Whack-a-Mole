@@ -141,7 +141,7 @@ body{
 
 .score{
     width: 100%;
-    margin: 2vh 5vw;
+    margin: 2vh auto;
     float: none;
 }
 
