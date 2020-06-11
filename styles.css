@@ -141,13 +141,15 @@ body{
 
 .score{
     width: 100%;
-    margin: 2vh 0;
+    margin: 2vh 5vw;
     float: none;
 }
 
 .grid-container{
     grid-template-columns: auto auto;
     margin: 0;
+    padding: 0;
+    grid-column-gap: 20vw;
 }
 }
 
