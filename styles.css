@@ -93,7 +93,7 @@ body{
 .mole{
     height: 90%;
     width: 100%;
-    transition: transform 0.8s;
+    transition: transform 0.2s;
     z-index: -10;
 }
 
