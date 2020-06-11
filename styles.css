@@ -132,8 +132,6 @@ body{
 }
 
 .hammer{
-    
-   /* filter: invert(11%) sepia(100%) saturate(7479%) hue-rotate(6deg) brightness(107%) contrast(113%);*/
     position: absolute;
     opacity: 0;
     height: 0;
